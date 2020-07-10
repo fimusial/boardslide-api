@@ -13,7 +13,7 @@
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <RootNamespace>Application</RootNamespace>
-    <AssemblyName>Application</AssemblyName>
+    <RootNamespace>BoardSlide.API.Application</RootNamespace>
+    <AssemblyName>BoardSlide.API.Application</AssemblyName>
   </PropertyGroup>
 </Project>

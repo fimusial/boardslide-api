@@ -1,4 +1,4 @@
-namespace Domain.Entities
+namespace BoardSlide.API.Domain.Entities
 {
     public class TodoItem
     {

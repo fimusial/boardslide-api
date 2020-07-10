@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
-using Application.Common.Exceptions;
+using BoardSlide.API.Application.Common.Exceptions;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Server.Filters
+namespace BoardSlide.API.Server.Filters
 {
     public class ApiExceptionFilter : ExceptionFilterAttribute
     {

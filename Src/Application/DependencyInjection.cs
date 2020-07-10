@@ -1,11 +1,11 @@
-using Application.Common.Behaviors;
+using BoardSlide.API.Application.Common.Behaviors;
 using AutoMapper;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace Application
+namespace BoardSlide.API.Application
 {
     public static class DependencyInjection
     {

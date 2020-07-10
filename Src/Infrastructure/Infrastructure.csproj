@@ -7,5 +7,7 @@
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>BoardSlide.API.Infrastructure</RootNamespace>
+    <AssemblyName>BoardSlide.API.Infrastructure</AssemblyName>
   </PropertyGroup>
 </Project>

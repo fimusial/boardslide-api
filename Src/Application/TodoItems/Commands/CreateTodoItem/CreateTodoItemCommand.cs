@@ -1,7 +1,7 @@
-using Application.TodoItems.Responses;
+using BoardSlide.API.Application.TodoItems.Responses;
 using MediatR;
 
-namespace Application.TodoItems.Commands.CreateTodoItem
+namespace BoardSlide.API.Application.TodoItems.Commands.CreateTodoItem
 {
     public class CreateTodoItemCommand : IRequest<TodoItemResponse>
     {

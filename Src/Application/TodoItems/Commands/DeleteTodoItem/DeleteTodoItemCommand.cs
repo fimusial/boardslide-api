@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Application.TodoItems.Commands.DeleteTodoItem
+namespace BoardSlide.API.Application.TodoItems.Commands.DeleteTodoItem
 {
     public class DeleteTodoItemCommand : IRequest
     {

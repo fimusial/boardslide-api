@@ -1,11 +1,11 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Common.Interfaces;
+using BoardSlide.API.Application.Common.Interfaces;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.TodoItems.Commands.UpdateTodoItem
+namespace BoardSlide.API.Application.TodoItems.Commands.UpdateTodoItem
 {
     public class UpdateTodoItemCommandValidator : AbstractValidator<UpdateTodoItemCommand>
     {

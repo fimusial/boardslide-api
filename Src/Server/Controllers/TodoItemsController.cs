@@ -1,13 +1,13 @@
 using System.Threading.Tasks;
-using Application.TodoItems.Commands.CreateTodoItem;
-using Application.TodoItems.Commands.DeleteTodoItem;
-using Application.TodoItems.Commands.UpdateTodoItem;
-using Application.TodoItems.Queries.GetTodoItem;
+using BoardSlide.API.Application.TodoItems.Commands.CreateTodoItem;
+using BoardSlide.API.Application.TodoItems.Commands.DeleteTodoItem;
+using BoardSlide.API.Application.TodoItems.Commands.UpdateTodoItem;
+using BoardSlide.API.Application.TodoItems.Queries.GetTodoItem;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Server.Dtos.TodoItems;
+using BoardSlide.API.Server.Dtos.TodoItems;
 
-namespace Server.Controllers
+namespace BoardSlide.API.Server.Controllers
 {
     public class TodoItemsController : ApiController
     {

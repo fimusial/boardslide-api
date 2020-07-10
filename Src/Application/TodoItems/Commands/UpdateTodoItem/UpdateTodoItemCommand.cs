@@ -1,7 +1,7 @@
-using Application.TodoItems.Responses;
+using BoardSlide.API.Application.TodoItems.Responses;
 using MediatR;
 
-namespace Application.TodoItems.Commands.UpdateTodoItem
+namespace BoardSlide.API.Application.TodoItems.Commands.UpdateTodoItem
 {
     public class UpdateTodoItemCommand : IRequest<TodoItemResponse>
     {

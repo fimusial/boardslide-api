@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <RootNamespace>Domain</RootNamespace>
-    <AssemblyName>Domain</AssemblyName>
+    <RootNamespace>BoardSlide.API.Domain</RootNamespace>
+    <AssemblyName>BoardSlide.API.Domain</AssemblyName>
   </PropertyGroup>
 </Project>

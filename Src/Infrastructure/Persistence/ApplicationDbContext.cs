@@ -1,9 +1,9 @@
 using System.Reflection;
-using Application.Common.Interfaces;
-using Domain.Entities;
+using BoardSlide.API.Application.Common.Interfaces;
+using BoardSlide.API.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Persistence
+namespace BoardSlide.API.Infrastructure.Persistence
 {
     public class ApplicationDbContext : DbContext, IApplicationDbContext
     {

@@ -1,8 +1,8 @@
-using Domain.Entities;
+using BoardSlide.API.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Persistence.Configurations
+namespace BoardSlide.API.Infrastructure.Persistence.Configurations
 {
     public class TodoItemConfiguration : IEntityTypeConfiguration<TodoItem>
     {

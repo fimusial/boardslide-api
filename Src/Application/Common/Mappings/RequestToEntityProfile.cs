@@ -1,9 +1,9 @@
-using Application.TodoItems.Commands.CreateTodoItem;
-using Application.TodoItems.Commands.UpdateTodoItem;
+using BoardSlide.API.Application.TodoItems.Commands.CreateTodoItem;
+using BoardSlide.API.Application.TodoItems.Commands.UpdateTodoItem;
 using AutoMapper;
-using Domain.Entities;
+using BoardSlide.API.Domain.Entities;
 
-namespace Application.Common.Mappings
+namespace BoardSlide.API.Application.Common.Mappings
 {
     public class RequestToEntityProfile : Profile
     {

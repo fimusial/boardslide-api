@@ -1,13 +1,13 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Common.Exceptions;
-using Application.Common.Interfaces;
-using Application.TodoItems.Responses;
+using BoardSlide.API.Application.Common.Exceptions;
+using BoardSlide.API.Application.Common.Interfaces;
+using BoardSlide.API.Application.TodoItems.Responses;
 using AutoMapper;
-using Domain.Entities;
+using BoardSlide.API.Domain.Entities;
 using MediatR;
 
-namespace Application.TodoItems.Queries.GetTodoItem
+namespace BoardSlide.API.Application.TodoItems.Queries.GetTodoItem
 {
     public class GetTodoItemQueryHandler : IRequestHandler<GetTodoItemQuery, TodoItemResponse>
     {

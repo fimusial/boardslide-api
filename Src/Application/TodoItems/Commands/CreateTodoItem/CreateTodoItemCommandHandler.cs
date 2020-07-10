@@ -1,13 +1,13 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Common.Interfaces;
-using Application.TodoItems.Responses;
+using BoardSlide.API.Application.Common.Interfaces;
+using BoardSlide.API.Application.TodoItems.Responses;
 using AutoMapper;
-using Domain.Entities;
+using BoardSlide.API.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace Application.TodoItems.Commands.CreateTodoItem
+namespace BoardSlide.API.Application.TodoItems.Commands.CreateTodoItem
 {
     public class CreateTodoItemCommandHandler : IRequestHandler<CreateTodoItemCommand, TodoItemResponse>
     {

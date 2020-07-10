@@ -1,8 +1,8 @@
-using Application.TodoItems.Responses;
+using BoardSlide.API.Application.TodoItems.Responses;
 using AutoMapper;
-using Domain.Entities;
+using BoardSlide.API.Domain.Entities;
 
-namespace Application.Common.Mappings
+namespace BoardSlide.API.Application.Common.Mappings
 {
     public class EntityToResponseProfile : Profile
     {

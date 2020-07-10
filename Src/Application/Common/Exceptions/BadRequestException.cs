@@ -1,6 +1,6 @@
 using System;
 
-namespace Application.Common.Exceptions
+namespace BoardSlide.API.Application.Common.Exceptions
 {
     public class BadRequestException : Exception
     {

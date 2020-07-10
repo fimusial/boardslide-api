@@ -1,10 +1,10 @@
-using Application.Common.Interfaces;
-using Infrastructure.Persistence;
+using BoardSlide.API.Application.Common.Interfaces;
+using BoardSlide.API.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Infrastructure
+namespace BoardSlide.API.Infrastructure
 {
     public static class DependencyInjection
     {

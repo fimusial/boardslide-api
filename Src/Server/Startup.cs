@@ -1,18 +1,18 @@
-using Application;
-using Infrastructure;
+using BoardSlide.API.Application;
+using BoardSlide.API.Infrastructure;
 using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Server.Filters;
+using BoardSlide.API.Server.Filters;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 using Microsoft.AspNetCore.Http;
 
-namespace Server
+namespace BoardSlide.API.Server
 {
     public class Startup
     {

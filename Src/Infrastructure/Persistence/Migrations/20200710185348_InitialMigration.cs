@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Infrastructure.Persistence.Migrations
+namespace BoardSlide.API.Infrastructure.Persistence.Migrations
 {
     public partial class InitialMigration : Migration
     {

@@ -2,7 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Server.Controllers
+namespace BoardSlide.API.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

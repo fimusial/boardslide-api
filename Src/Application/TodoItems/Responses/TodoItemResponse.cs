@@ -1,6 +1,4 @@
-using Domain.Entities;
-
-namespace Application.TodoItems.Responses
+namespace BoardSlide.API.Application.TodoItems.Responses
 {
     public class TodoItemResponse
     {

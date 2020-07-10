@@ -1,11 +1,11 @@
 using System;
-using Infrastructure.Persistence;
+using BoardSlide.API.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Server
+namespace BoardSlide.API.Server
 {
     public class Program
     {

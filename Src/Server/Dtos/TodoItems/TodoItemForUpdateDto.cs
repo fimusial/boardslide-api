@@ -1,4 +1,4 @@
-namespace Server.Dtos.TodoItems
+namespace BoardSlide.API.Server.Dtos.TodoItems
 {
     public class TodoItemForUpdateDto
     {

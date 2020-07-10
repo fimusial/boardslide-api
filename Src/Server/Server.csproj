@@ -9,6 +9,8 @@
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>BoardSlide.API.Server</RootNamespace>
+    <AssemblyName>BoardSlide.API.Server</AssemblyName>
     <UserSecretsId>b6cad58f737af48ca1443130c1323f8f</UserSecretsId>
   </PropertyGroup>
 </Project>

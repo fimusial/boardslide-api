@@ -1,9 +1,9 @@
-using Domain.Entities;
+using BoardSlide.API.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.Common.Interfaces
+namespace BoardSlide.API.Application.Common.Interfaces
 {
     public interface IApplicationDbContext
     {

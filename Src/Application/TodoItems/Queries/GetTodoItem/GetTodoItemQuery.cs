@@ -1,7 +1,7 @@
-using Application.TodoItems.Responses;
+using BoardSlide.API.Application.TodoItems.Responses;
 using MediatR;
 
-namespace Application.TodoItems.Queries.GetTodoItem
+namespace BoardSlide.API.Application.TodoItems.Queries.GetTodoItem
 {
     public class GetTodoItemQuery : IRequest<TodoItemResponse>
     {

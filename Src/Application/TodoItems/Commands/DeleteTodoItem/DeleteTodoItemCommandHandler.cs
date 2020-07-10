@@ -1,11 +1,11 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Common.Exceptions;
-using Application.Common.Interfaces;
-using Domain.Entities;
+using BoardSlide.API.Application.Common.Exceptions;
+using BoardSlide.API.Application.Common.Interfaces;
+using BoardSlide.API.Domain.Entities;
 using MediatR;
 
-namespace Application.TodoItems.Commands.DeleteTodoItem
+namespace BoardSlide.API.Application.TodoItems.Commands.DeleteTodoItem
 {
     public class DeleteTodoItemCommandHandler : IRequestHandler<DeleteTodoItemCommand>
     {
