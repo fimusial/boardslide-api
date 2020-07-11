@@ -6,9 +6,12 @@ using BoardSlide.API.Application.TodoItems.Queries.GetTodoItem;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BoardSlide.API.Server.Dtos.TodoItems;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BoardSlide.API.Server.Controllers
 {
+    [Authorize]
+    [Route("api/[controller]")]
     public class TodoItemsController : ApiController
     {
         [HttpGet]
@@ -53,7 +56,7 @@ namespace BoardSlide.API.Server.Controllers
 
         [HttpDelete]
         [Route("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {

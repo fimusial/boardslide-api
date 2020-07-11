@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 namespace BoardSlide.API.Server.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
     public abstract class ApiController : ControllerBase
     {
         private IMediator _mediator;

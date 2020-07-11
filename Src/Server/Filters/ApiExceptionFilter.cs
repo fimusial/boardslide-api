@@ -20,7 +20,8 @@ namespace BoardSlide.API.Server.Filters
             {
                 { typeof(ValidationException), HandleValidationException },
                 { typeof(NotFoundException), HandleNotFoundException },
-                { typeof(BadRequestException), HandleBadRequestException }
+                { typeof(BadRequestException), HandleBadRequestException },
+                { typeof(UnauthorizedException), HandleUnauthorizedException }
             };
         }
 
@@ -104,6 +105,19 @@ namespace BoardSlide.API.Server.Filters
                 Detail = exception.Message
             };
             context.Result = new BadRequestObjectResult(details);
+        }
+
+        private void HandleUnauthorizedException(ExceptionContext context)
+        {
+            var exception = context.Exception as UnauthorizedException;
+            var details = new ProblemDetails()
+            {
+                Status = StatusCodes.Status401Unauthorized,
+                Type = "https://tools.ietf.org/html/rfc7235#section-3.1",
+                Title = "Invalid authentication credentials.",
+                Detail = exception.Message
+            };
+            context.Result = new UnauthorizedObjectResult(details);
         }
     }
 }
