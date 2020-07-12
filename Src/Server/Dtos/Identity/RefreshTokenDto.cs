@@ -1,6 +1,6 @@
-namespace BoardSlide.API.Application.Identity.Responses
+namespace BoardSlide.API.Server.Dtos.Identity
 {
-    public class TokenResponse
+    public class RefreshTokenDto
     {
         public string Token { get; set; }
         public string RefreshToken { get; set; }

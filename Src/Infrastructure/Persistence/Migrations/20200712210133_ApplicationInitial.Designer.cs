@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BoardSlide.API.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200710185348_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20200712210133_ApplicationInitial")]
+    partial class ApplicationInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

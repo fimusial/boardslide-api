@@ -7,5 +7,6 @@ namespace BoardSlide.API.Application.Common.Interfaces
     {
         Task<Result> RegisterUserAsync(string userName, string password);
         Task<AuthenticationResult> SignInUserAsync(string userName, string password);
+        Task<AuthenticationResult> RefreshTokenAsync(string token, string refreshToken);
     }
 }

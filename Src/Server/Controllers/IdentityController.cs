@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using BoardSlide.API.Application.Identity.Commands.RefreshToken;
 using BoardSlide.API.Application.Identity.Commands.RegisterUser;
 using BoardSlide.API.Application.Identity.Commands.SignInUser;
 using BoardSlide.API.Server.Dtos.Identity;
@@ -21,7 +22,6 @@ namespace BoardSlide.API.Server.Controllers
                 UserName = dto.UserName,
                 Password = dto.Password
             });
-            
             return NoContent();
         }
 
@@ -36,7 +36,18 @@ namespace BoardSlide.API.Server.Controllers
                 UserName = dto.UserName,
                 Password = dto.Password
             });
-            
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("refresh")]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenDto dto)
+        {
+            var result = await Mediator.Send(new RefreshTokenCommand()
+            {
+                Token = dto.Token,
+                RefreshToken = dto.RefreshToken
+            });
             return Ok(result);
         }
     }

@@ -1,4 +1,5 @@
 using System;
+using BoardSlide.API.Infrastructure.Identity;
 using BoardSlide.API.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -17,8 +18,10 @@ namespace BoardSlide.API.Server
             {
                 try
                 {
-                    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                    context.Database.Migrate();
+                    var applicationContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                    var identityContext = scope.ServiceProvider.GetRequiredService<IdentityDbContext>();
+                    applicationContext.Database.Migrate();
+                    identityContext.Database.Migrate();
 
                 }
                 catch (Exception)

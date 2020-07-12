@@ -20,10 +20,11 @@ namespace BoardSlide.API.Server.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get([FromRoute] int id)
         {
-            return Ok(await Mediator.Send(new GetTodoItemQuery()
+            var result = await Mediator.Send(new GetTodoItemQuery()
             {
                 Id = id
-            }));
+            });
+            return Ok(result);
         }
 
         [HttpPost]
@@ -46,12 +47,13 @@ namespace BoardSlide.API.Server.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Put([FromRoute] int id, [FromBody] TodoItemForUpdateDto dto)
         {
-            return Ok(await Mediator.Send(new UpdateTodoItemCommand()
+            var result = await Mediator.Send(new UpdateTodoItemCommand()
             {
                 Id = id,
                 Name = dto.Name,
                 Description = dto.Description
-            }));
+            });
+            return Ok(result);
         }
 
         [HttpDelete]

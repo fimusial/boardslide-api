@@ -1,13 +1,11 @@
-using System.Reflection;
 using BoardSlide.API.Application.Common.Interfaces;
 using BoardSlide.API.Domain.Entities;
-using BoardSlide.API.Infrastructure.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using BoardSlide.API.Infrastructure.Persistence.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace BoardSlide.API.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         public DbSet<TodoItem> TodoItems { get; set; }
 
@@ -18,8 +16,8 @@ namespace BoardSlide.API.Infrastructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(builder);
+            builder.ApplyConfiguration(new TodoItemConfiguration());
         }
     }
 }

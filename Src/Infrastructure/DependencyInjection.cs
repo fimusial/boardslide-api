@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using BoardSlide.API.Application.Common.Interfaces;
 using BoardSlide.API.Infrastructure.Identity;
+using BoardSlide.API.Infrastructure.Identity.Entities;
 using BoardSlide.API.Infrastructure.Persistence;
 using BoardSlide.API.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -17,36 +18,15 @@ namespace BoardSlide.API.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("Default")));
-            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+            string defaultConnectionString = configuration.GetConnectionString("Default");
+
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(defaultConnectionString));
+            services.AddDbContext<IdentityDbContext>(options => options.UseSqlServer(defaultConnectionString));
 
             services.AddIdentityCore<ApplicationUser>()
                 .AddSignInManager<SignInManager<ApplicationUser>>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            services.Configure<JwtSettings>(options => configuration.GetSection("JwtSettings").Bind(options));
-            var secret = configuration["JwtSettings:Secret"];
-
-            services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(options =>
-            {
-                options.SaveToken = true;
-                options.TokenValidationParameters = new TokenValidationParameters()
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secret)),
-                    ValidateLifetime = true,
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
-                    ClockSkew = TimeSpan.Zero
-                };
-            });
-
+                .AddEntityFrameworkStores<IdentityDbContext>();
+            
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = true;
@@ -64,8 +44,35 @@ namespace BoardSlide.API.Infrastructure
                 options.User.RequireUniqueEmail = false;
             });
 
-            services.AddTransient<IDateTime, DateTimeService>();
+            services.Configure<JwtSettings>(options => configuration.GetSection("JwtSettings").Bind(options));
+            string secret = configuration["JwtSettings:Secret"];
+
+            var tokenValidationParameters = new TokenValidationParameters()
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secret)),
+                ValidateLifetime = true,
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ClockSkew = TimeSpan.Zero
+            };
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.TokenValidationParameters = tokenValidationParameters;
+            });
+
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             services.AddScoped<IIdentityService, IdentityService>();
+            services.AddTransient<IDateTime, DateTimeService>();
+            services.AddSingleton<TokenValidationParameters>(tokenValidationParameters);
             return services;
         }
     }

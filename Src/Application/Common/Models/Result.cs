@@ -20,6 +20,11 @@ namespace BoardSlide.API.Application.Common.Models
             return new Result(true, Enumerable.Empty<string>());
         }
 
+        public static Result Failure(string error)
+        {
+            return new Result(false, new string[] { error });
+        }
+
         public static Result Failure(IEnumerable<string> errors)
         {
             return new Result(false, errors);

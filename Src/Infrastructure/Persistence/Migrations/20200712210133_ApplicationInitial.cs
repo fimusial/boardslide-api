@@ -2,7 +2,7 @@
 
 namespace BoardSlide.API.Infrastructure.Persistence.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class ApplicationInitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
