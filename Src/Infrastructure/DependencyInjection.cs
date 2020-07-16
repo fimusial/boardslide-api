@@ -18,10 +18,14 @@ namespace BoardSlide.API.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            string defaultConnectionString = configuration.GetConnectionString("Default");
+            string connectionString = configuration.GetConnectionString("Default");
+            int maxRetryCount = configuration.GetSection("DatabaseSettings").GetValue<int>("ConnectRetryCount");
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(defaultConnectionString));
-            services.AddDbContext<IdentityDbContext>(options => options.UseSqlServer(defaultConnectionString));
+            services.AddDbContext<ApplicationDbContext>(options => options
+                .UseSqlServer(connectionString, builder => builder.EnableRetryOnFailure(maxRetryCount)));
+
+            services.AddDbContext<IdentityDbContext>(options => options
+                .UseSqlServer(connectionString, builder => builder.EnableRetryOnFailure(maxRetryCount)));
 
             services.AddIdentityCore<ApplicationUser>()
                 .AddSignInManager<SignInManager<ApplicationUser>>()

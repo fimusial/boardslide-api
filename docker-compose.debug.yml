@@ -14,7 +14,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
-      - "ConnectionStrings__Default=Server=database;Database=TodoItems;User=sa;Password=${SA_PASSWORD};MultipleActiveResultSets=True;"
+      - "DatabaseSettings__ConnectRetryCount=20"
+      - "ConnectionStrings__Default=Server=database;Database=BoardSlideApi;User=sa;Password=${SA_PASSWORD};MultipleActiveResultSets=True;ConnectRetryCount=20;"
     volumes:
       - ~/.vsdbg:/remote_debugger:rw
     depends_on:
