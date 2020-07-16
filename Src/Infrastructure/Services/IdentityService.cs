@@ -79,8 +79,10 @@ namespace BoardSlide.API.Infrastructure.Services
             return await GenerateTokensAsync(user);
         }
 
-        public async Task<AuthenticationResult> RefreshTokenAsync(string token, string refreshToken)
+        public async Task<AuthenticationResult> RefreshTokenAsync(string token, string refreshTokenBase64)
         {
+            string refreshToken = Base64ToString(refreshTokenBase64);
+
             DateTime now = DateTime.UtcNow;
             ClaimsPrincipal principal = GetClaimsPrincipalFromToken(token);
             if (principal == null)
@@ -150,8 +152,6 @@ namespace BoardSlide.API.Infrastructure.Services
                expires: expiration,
                signingCredentials: credentials);
 
-            string tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-
             DateTime now = DateTime.UtcNow;
             var refreshTokenInfo = new RefreshTokenInfo()
             {
@@ -164,7 +164,9 @@ namespace BoardSlide.API.Infrastructure.Services
             _identityContext.RefreshTokens.Add(refreshTokenInfo);
             await _identityContext.SaveChangesAsync();
 
-            return AuthenticationResult.Successful(tokenString, refreshTokenInfo.Token);
+            string tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+            string refreshTokenString = StringToBase64(refreshTokenInfo.Token);
+            return AuthenticationResult.Successful(tokenString, refreshTokenString);
         }
 
         private ClaimsPrincipal GetClaimsPrincipalFromToken(string token)
@@ -205,6 +207,18 @@ namespace BoardSlide.API.Infrastructure.Services
             }
 
             return true;
+        }
+
+        private string StringToBase64(string input)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(input);
+            return Convert.ToBase64String(bytes);
+        }
+
+        private string Base64ToString(string input)
+        {
+            byte[] bytes = Convert.FromBase64String(input);
+            return Encoding.UTF8.GetString(bytes);
         }
     }
 }
