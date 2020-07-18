@@ -1,9 +1,12 @@
 using System;
 using System.Text;
 using BoardSlide.API.Application.Common.Interfaces;
+using BoardSlide.API.Application.Common.Interfaces.Repositories;
 using BoardSlide.API.Infrastructure.Identity;
 using BoardSlide.API.Infrastructure.Identity.Entities;
+using BoardSlide.API.Infrastructure.Identity.Settings;
 using BoardSlide.API.Infrastructure.Persistence;
+using BoardSlide.API.Infrastructure.Repositories;
 using BoardSlide.API.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -73,8 +76,15 @@ namespace BoardSlide.API.Infrastructure
                 options.TokenValidationParameters = tokenValidationParameters;
             });
 
-            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IBoardsRepository, BoardsRepository>();
+            services.AddScoped<ICardListsRepository, CardListsRepository>();
+            services.AddScoped<ICardsRepository, CardsRepository>();
+
             services.AddTransient<IDateTime, DateTimeService>();
             services.AddSingleton<TokenValidationParameters>(tokenValidationParameters);
             return services;

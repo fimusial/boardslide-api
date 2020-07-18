@@ -15,20 +15,9 @@ namespace BoardSlide.API.Application.Common.Models
             Errors = errors;
         }
 
-        public static Result Successful()
-        {
-            return new Result(true, Enumerable.Empty<string>());
-        }
-
-        public static Result Failure(string error)
-        {
-            return new Result(false, new string[] { error });
-        }
-
-        public static Result Failure(IEnumerable<string> errors)
-        {
-            return new Result(false, errors);
-        }
+        public static Result Successful() => new Result(true, Enumerable.Empty<string>());
+        public static Result Failure(string error) => new Result(false, new string[] { error });
+        public static Result Failure(IEnumerable<string> errors) => new Result(false, errors);
 
         public string GetErrorMessage()
         {

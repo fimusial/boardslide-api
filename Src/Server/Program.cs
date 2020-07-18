@@ -22,7 +22,6 @@ namespace BoardSlide.API.Server
                     var identityContext = scope.ServiceProvider.GetRequiredService<IdentityDbContext>();
                     applicationContext.Database.Migrate();
                     identityContext.Database.Migrate();
-
                 }
                 catch (Exception)
                 {

@@ -21,19 +21,13 @@ namespace BoardSlide.API.Application.Common.Models
         }
 
         public static AuthenticationResult Successful(string token, string refreshToken)
-        {
-            return new AuthenticationResult(true, token, refreshToken, Enumerable.Empty<string>());
-        }
+            => new AuthenticationResult(true, token, refreshToken, Enumerable.Empty<string>());
 
         public static AuthenticationResult Failure(string error)
-        {
-            return new AuthenticationResult(false, null, null, new string[] { error });
-        }
+            => new AuthenticationResult(false, null, null, new string[] { error });
 
         public static AuthenticationResult Failure(IEnumerable<string> errors)
-        {
-            return new AuthenticationResult(false, null, null, errors);
-        }
+            => new AuthenticationResult(false, null, null, errors);
 
         public string GetErrorMessage()
         {

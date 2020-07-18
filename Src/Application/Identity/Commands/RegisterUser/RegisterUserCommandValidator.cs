@@ -8,7 +8,7 @@ namespace BoardSlide.API.Application.Identity.Commands.RegisterUser
         {
             RuleFor(request => request.UserName)
                 .NotEmpty().WithMessage("Username is required.")
-                .Matches(@"^[a-zA-Z0-9_]*$").WithMessage("Username can only contain alphanumeric characters and underscores (_).");
+                .Matches(@"^[a-zA-Z0-9_]*$").WithMessage("Username can only contain alphanumeric characters and underscores.");
 
             RuleFor(request => request.Password)
                 .NotEmpty().WithMessage("Password is required.")

@@ -69,7 +69,17 @@ namespace BoardSlide.API.Server.Filters
             IDictionary<string, string[]> errors = exception.Errors
                 .GroupBy(error => error.PropertyName)
                 .ToDictionary(
-                    group => char.ToLower(group.Key[0]) + group.Key.Substring(1),
+                    group =>
+                    {
+                        if (string.IsNullOrWhiteSpace(group.Key))
+                        {
+                            return "none";
+                        }
+                        else
+                        {
+                            return char.ToLower(group.Key[0]) + group.Key.Substring(1);
+                        }
+                    },
                     group => group.Select(x => x.ErrorMessage).ToArray());
 
             var details = new ValidationProblemDetails(errors)

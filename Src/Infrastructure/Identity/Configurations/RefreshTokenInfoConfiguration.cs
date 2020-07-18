@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using BoardSlide.API.Infrastructure.Identity.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

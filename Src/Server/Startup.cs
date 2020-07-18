@@ -25,7 +25,7 @@ namespace BoardSlide.API.Server
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.AddInfrastructure(Configuration);
 
             services.AddControllers(options =>
@@ -63,10 +63,9 @@ namespace BoardSlide.API.Server
 
             app.UseHttpsRedirection();
             app.UseRouting();
-            
+
             app.UseAuthentication();
             app.UseAuthorization();
-            
             app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }

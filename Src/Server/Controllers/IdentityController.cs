@@ -2,20 +2,19 @@ using System.Threading.Tasks;
 using BoardSlide.API.Application.Identity.Commands.RefreshToken;
 using BoardSlide.API.Application.Identity.Commands.RegisterUser;
 using BoardSlide.API.Application.Identity.Commands.SignInUser;
-using BoardSlide.API.Server.Dtos.Identity;
+using BoardSlide.API.Server.Contracts;
+using BoardSlide.API.Server.Contracts.Dtos.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BoardSlide.API.Server.Controllers
 {
-    [Route("api")]
     public class IdentityController : ApiController
     {
-        [HttpPost]
-        [Route("register")]
+        [HttpPost(ApiRoutes.Identity.Register)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> RegisterUser([FromBody] RegisterDto dto)
+        public async Task<IActionResult> Register([FromBody] RegisterDto dto)
         {
             var result = await Mediator.Send(new RegisterUserCommand()
             {
@@ -25,11 +24,10 @@ namespace BoardSlide.API.Server.Controllers
             return NoContent();
         }
 
-        [HttpPost]
-        [Route("login")]
+        [HttpPost(ApiRoutes.Identity.SignIn)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> SignInUser([FromBody] SignInDto dto)
+        public async Task<IActionResult> SignIn([FromBody] SignInDto dto)
         {
             var result = await Mediator.Send(new SignInUserCommand()
             {
@@ -39,9 +37,8 @@ namespace BoardSlide.API.Server.Controllers
             return Ok(result);
         }
 
-        [HttpPost]
-        [Route("refresh")]
-        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenDto dto)
+        [HttpPost(ApiRoutes.Identity.Refresh)]
+        public async Task<IActionResult> Refresh([FromBody] RefreshTokenDto dto)
         {
             var result = await Mediator.Send(new RefreshTokenCommand()
             {
