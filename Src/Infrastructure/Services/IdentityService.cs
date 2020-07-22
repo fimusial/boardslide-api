@@ -5,14 +5,14 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using BoardSlide.API.Application.Common.Interfaces;
 using BoardSlide.API.Application.Common.Models;
 using BoardSlide.API.Infrastructure.Identity;
 using BoardSlide.API.Infrastructure.Identity.Entities;
 using BoardSlide.API.Infrastructure.Identity.Settings;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 
 namespace BoardSlide.API.Infrastructure.Services
 {

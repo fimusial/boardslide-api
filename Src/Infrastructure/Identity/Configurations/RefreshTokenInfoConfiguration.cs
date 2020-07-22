@@ -1,6 +1,6 @@
-using BoardSlide.API.Infrastructure.Identity.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using BoardSlide.API.Infrastructure.Identity.Entities;
 
 namespace BoardSlide.API.Infrastructure.Identity.Configurations
 {

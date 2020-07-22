@@ -1,8 +1,8 @@
 using AutoMapper;
-using BoardSlide.API.Domain.Entities;
 using BoardSlide.API.Application.Boards.Responses;
 using BoardSlide.API.Application.CardLists.Responses;
 using BoardSlide.API.Application.Cards.Responses;
+using BoardSlide.API.Domain.Entities;
 
 namespace BoardSlide.API.Application.Common.Mappings
 {

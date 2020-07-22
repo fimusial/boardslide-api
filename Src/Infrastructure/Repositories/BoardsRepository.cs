@@ -1,9 +1,9 @@
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using BoardSlide.API.Application.Common.Interfaces.Repositories;
 using BoardSlide.API.Domain.Entities;
 using BoardSlide.API.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
 
 namespace BoardSlide.API.Infrastructure.Repositories
 {

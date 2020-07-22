@@ -1,10 +1,10 @@
 using System;
-using BoardSlide.API.Infrastructure.Identity;
-using BoardSlide.API.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using BoardSlide.API.Infrastructure.Identity;
+using BoardSlide.API.Infrastructure.Persistence;
 
 namespace BoardSlide.API.Server
 {

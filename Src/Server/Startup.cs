@@ -1,16 +1,16 @@
-using BoardSlide.API.Application;
-using BoardSlide.API.Infrastructure;
 using System.Linq;
+using System.Net.Mime;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using BoardSlide.API.Application;
+using BoardSlide.API.Infrastructure;
 using BoardSlide.API.Server.Filters;
-using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Mime;
-using Microsoft.AspNetCore.Http;
 
 namespace BoardSlide.API.Server
 {

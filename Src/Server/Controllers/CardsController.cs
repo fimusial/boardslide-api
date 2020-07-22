@@ -1,4 +1,7 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using BoardSlide.API.Application.Cards.Commands.CreateCard;
 using BoardSlide.API.Application.Cards.Commands.DeleteCard;
 using BoardSlide.API.Application.Cards.Commands.UpdateCard;
@@ -6,9 +9,6 @@ using BoardSlide.API.Application.Cards.Queries.GetCard;
 using BoardSlide.API.Application.Cards.Queries.GetCards;
 using BoardSlide.API.Server.Contracts;
 using BoardSlide.API.Server.Contracts.Dtos.Cards;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace BoardSlide.API.Server.Controllers
 {

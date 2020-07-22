@@ -5,7 +5,6 @@ using BoardSlide.API.Application.Boards.Responses;
 using BoardSlide.API.Application.Common;
 using BoardSlide.API.Application.Common.Interfaces;
 using BoardSlide.API.Application.Common.Interfaces.Repositories;
-using BoardSlide.API.Domain.Entities;
 using MediatR;
 
 namespace BoardSlide.API.Application.Boards.Queries.GetBoard

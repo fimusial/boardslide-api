@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using BoardSlide.API.Application.Common.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
+using BoardSlide.API.Application.Common.Interfaces.Repositories;
 
 namespace BoardSlide.API.Infrastructure.Repositories
 {

@@ -1,11 +1,11 @@
 using AutoMapper;
-using BoardSlide.API.Domain.Entities;
 using BoardSlide.API.Application.Boards.Commands.CreateBoard;
 using BoardSlide.API.Application.Boards.Commands.UpdateBoard;
 using BoardSlide.API.Application.CardLists.Commands.CreateCardList;
 using BoardSlide.API.Application.CardLists.Commands.UpdateCardList;
 using BoardSlide.API.Application.Cards.Commands.CreateCard;
 using BoardSlide.API.Application.Cards.Commands.UpdateCard;
+using BoardSlide.API.Domain.Entities;
 
 namespace BoardSlide.API.Application.Common.Mappings
 {

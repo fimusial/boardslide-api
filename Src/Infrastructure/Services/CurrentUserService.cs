@@ -1,6 +1,6 @@
 using System.Security.Claims;
-using BoardSlide.API.Application.Common.Interfaces;
 using Microsoft.AspNetCore.Http;
+using BoardSlide.API.Application.Common.Interfaces;
 
 namespace BoardSlide.API.Infrastructure.Services
 {

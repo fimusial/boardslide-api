@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
-using BoardSlide.API.Application.Common.Exceptions;
-using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using BoardSlide.API.Application.Common.Exceptions;
+using FluentValidation;
 
 namespace BoardSlide.API.Server.Filters
 {

@@ -1,4 +1,7 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using BoardSlide.API.Application.Boards.Commands.CreateBoard;
 using BoardSlide.API.Application.Boards.Commands.DeleteBoard;
 using BoardSlide.API.Application.Boards.Commands.UpdateBoard;
@@ -6,9 +9,6 @@ using BoardSlide.API.Application.Boards.Queries.GetBoard;
 using BoardSlide.API.Application.Boards.Queries.GetBoards;
 using BoardSlide.API.Server.Contracts;
 using BoardSlide.API.Server.Contracts.Dtos.Boards;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace BoardSlide.API.Server.Controllers
 {

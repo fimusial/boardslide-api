@@ -1,11 +1,11 @@
-using BoardSlide.API.Application.Common.Behaviors;
+using System.Reflection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using AutoMapper;
+using BoardSlide.API.Application.Common.Behaviors;
+using BoardSlide.API.Application.Common.Settings;
 using FluentValidation;
 using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
-using BoardSlide.API.Application.Common.Settings;
-using Microsoft.Extensions.Configuration;
 
 namespace BoardSlide.API.Application
 {

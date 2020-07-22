@@ -1,5 +1,11 @@
 using System;
 using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using BoardSlide.API.Application.Common.Interfaces;
 using BoardSlide.API.Application.Common.Interfaces.Repositories;
 using BoardSlide.API.Infrastructure.Identity;
@@ -8,12 +14,6 @@ using BoardSlide.API.Infrastructure.Identity.Settings;
 using BoardSlide.API.Infrastructure.Persistence;
 using BoardSlide.API.Infrastructure.Repositories;
 using BoardSlide.API.Infrastructure.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 
 namespace BoardSlide.API.Infrastructure
 {

@@ -1,6 +1,6 @@
-using BoardSlide.API.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using BoardSlide.API.Domain.Entities;
 
 namespace BoardSlide.API.Infrastructure.Persistence.Configurations
 {

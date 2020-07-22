@@ -1,7 +1,7 @@
-using BoardSlide.API.Infrastructure.Identity.Configurations;
-using BoardSlide.API.Infrastructure.Identity.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using BoardSlide.API.Infrastructure.Identity.Configurations;
+using BoardSlide.API.Infrastructure.Identity.Entities;
 
 namespace BoardSlide.API.Infrastructure.Identity
 {

@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using BoardSlide.API.Application.Identity.Commands.RefreshToken;
 using BoardSlide.API.Application.Identity.Commands.RegisterUser;
 using BoardSlide.API.Application.Identity.Commands.SignInUser;
 using BoardSlide.API.Server.Contracts;
 using BoardSlide.API.Server.Contracts.Dtos.Identity;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace BoardSlide.API.Server.Controllers
 {

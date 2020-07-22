@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 using AutoMapper;
 using BoardSlide.API.Application.Cards.Responses;
 using BoardSlide.API.Application.Common;
@@ -9,7 +10,6 @@ using BoardSlide.API.Application.Common.Interfaces.Repositories;
 using BoardSlide.API.Application.Common.Settings;
 using BoardSlide.API.Domain.Entities;
 using MediatR;
-using Microsoft.Extensions.Options;
 
 namespace BoardSlide.API.Application.Cards.Commands.CreateCard
 {
