@@ -7,13 +7,17 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using BoardSlide.API.Application.Common.Interfaces;
+using BoardSlide.API.Application.Common.Interfaces.Cache;
+using BoardSlide.API.Application.Common.Interfaces.Identity;
 using BoardSlide.API.Application.Common.Interfaces.Repositories;
 using BoardSlide.API.Infrastructure.Identity;
 using BoardSlide.API.Infrastructure.Identity.Entities;
-using BoardSlide.API.Infrastructure.Identity.Settings;
 using BoardSlide.API.Infrastructure.Persistence;
-using BoardSlide.API.Infrastructure.Repositories;
 using BoardSlide.API.Infrastructure.Services;
+using BoardSlide.API.Infrastructure.Services.Cache;
+using BoardSlide.API.Infrastructure.Services.Identity;
+using BoardSlide.API.Infrastructure.Services.Repositories;
+using BoardSlide.API.Infrastructure.Settings;
 
 namespace BoardSlide.API.Infrastructure
 {
@@ -22,7 +26,7 @@ namespace BoardSlide.API.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             string connectionString = configuration.GetConnectionString("Default");
-            int maxRetryCount = configuration.GetSection("DatabaseSettings").GetValue<int>("ConnectRetryCount");
+            int maxRetryCount = configuration.GetValue<int>("DatabaseSettings:ConnectRetryCount");
 
             services.AddDbContext<ApplicationDbContext>(options => options
                 .UseSqlServer(connectionString, builder => builder.EnableRetryOnFailure(maxRetryCount)));
@@ -33,7 +37,7 @@ namespace BoardSlide.API.Infrastructure
             services.AddIdentityCore<ApplicationUser>()
                 .AddSignInManager<SignInManager<ApplicationUser>>()
                 .AddEntityFrameworkStores<IdentityDbContext>();
-            
+
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = true;
@@ -52,7 +56,7 @@ namespace BoardSlide.API.Infrastructure
             });
 
             services.Configure<JwtSettings>(options => configuration.GetSection("JwtSettings").Bind(options));
-            string secret = configuration["JwtSettings:Secret"];
+            string secret = configuration.GetValue<string>("JwtSettings:Secret");
 
             var tokenValidationParameters = new TokenValidationParameters()
             {
@@ -76,9 +80,22 @@ namespace BoardSlide.API.Infrastructure
                 options.TokenValidationParameters = tokenValidationParameters;
             });
 
+            if (configuration.GetValue<bool>("CacheSettings:UseInMemoryCache"))
+            {
+                services.AddMemoryCache();
+                services.AddScoped<ICacheService, InMemoryCacheService>();
+            }
+            else
+            {
+                services.AddDistributedRedisCache(options =>
+                {
+                    options.Configuration = configuration.GetValue<string>("RedisCacheSettings:Connection");
+                });
+                services.AddScoped<ICacheService, RedisCacheService>();
+            }
+
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
-
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IBoardsRepository, BoardsRepository>();
@@ -86,7 +103,9 @@ namespace BoardSlide.API.Infrastructure
             services.AddScoped<ICardsRepository, CardsRepository>();
 
             services.AddTransient<IDateTime, DateTimeService>();
+
             services.AddSingleton<TokenValidationParameters>(tokenValidationParameters);
+
             return services;
         }
     }

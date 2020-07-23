@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using BoardSlide.API.Application.Common.Interfaces.Repositories;
 
-namespace BoardSlide.API.Infrastructure.Repositories
+namespace BoardSlide.API.Infrastructure.Services.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {

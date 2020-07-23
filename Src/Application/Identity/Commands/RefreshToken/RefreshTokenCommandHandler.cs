@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using BoardSlide.API.Application.Common.Exceptions;
-using BoardSlide.API.Application.Common.Interfaces;
+using BoardSlide.API.Application.Common.Interfaces.Identity;
 using BoardSlide.API.Application.Common.Models;
 using BoardSlide.API.Application.Identity.Responses;
 using MediatR;

@@ -5,7 +5,7 @@ using BoardSlide.API.Application.Common.Interfaces.Repositories;
 using BoardSlide.API.Domain.Entities;
 using BoardSlide.API.Infrastructure.Persistence;
 
-namespace BoardSlide.API.Infrastructure.Repositories
+namespace BoardSlide.API.Infrastructure.Services.Repositories
 {
     public class CardListsRepository : Repository<CardList>, ICardListsRepository
     {

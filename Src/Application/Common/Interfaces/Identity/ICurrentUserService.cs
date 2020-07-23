@@ -1,4 +1,4 @@
-namespace BoardSlide.API.Application.Common.Interfaces
+namespace BoardSlide.API.Application.Common.Interfaces.Identity
 {
     public interface ICurrentUserService
     {

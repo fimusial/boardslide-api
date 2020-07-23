@@ -1,6 +1,6 @@
 using AutoMapper;
 using BoardSlide.API.Application.Common.Exceptions;
-using BoardSlide.API.Application.Common.Interfaces;
+using BoardSlide.API.Application.Common.Interfaces.Identity;
 using BoardSlide.API.Application.Common.Interfaces.Repositories;
 using BoardSlide.API.Domain.Entities;
 

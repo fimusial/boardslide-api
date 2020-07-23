@@ -1,8 +1,8 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
-using BoardSlide.API.Application.Common.Interfaces;
+using BoardSlide.API.Application.Common.Interfaces.Identity;
 
-namespace BoardSlide.API.Infrastructure.Services
+namespace BoardSlide.API.Infrastructure.Services.Identity
 {
     public class CurrentUserService : ICurrentUserService
     {

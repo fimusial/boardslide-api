@@ -1,4 +1,4 @@
-namespace BoardSlide.API.Infrastructure.Identity.Settings
+namespace BoardSlide.API.Infrastructure.Settings
 {
     public class JwtSettings
     {

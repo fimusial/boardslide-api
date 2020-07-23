@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using BoardSlide.API.Application.Common.Interfaces;
+using BoardSlide.API.Application.Common.Interfaces.Identity;
 using BoardSlide.API.Application.Common.Models;
 using BoardSlide.API.Infrastructure.Identity;
 using BoardSlide.API.Infrastructure.Identity.Entities;
-using BoardSlide.API.Infrastructure.Identity.Settings;
+using BoardSlide.API.Infrastructure.Settings;
 
-namespace BoardSlide.API.Infrastructure.Services
+namespace BoardSlide.API.Infrastructure.Services.Identity
 {
     public class IdentityService : IIdentityService
     {

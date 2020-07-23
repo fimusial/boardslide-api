@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using BoardSlide.API.Application.Common.Interfaces.Repositories;
 using BoardSlide.API.Infrastructure.Persistence;
 
-namespace BoardSlide.API.Infrastructure.Repositories
+namespace BoardSlide.API.Infrastructure.Services.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {

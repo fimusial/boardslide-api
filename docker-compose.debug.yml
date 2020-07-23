@@ -14,12 +14,14 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
-      - "DatabaseSettings__ConnectRetryCount=20"
+      - "DatabaseSettings__ConnectRetryCount=25"
       - "ConnectionStrings__Default=Server=database;Database=BoardSlideApi;User=sa;Password=${SA_PASSWORD};MultipleActiveResultSets=True;ConnectRetryCount=20;"
+      - "RedisCacheSettings__Connection=cache"
     volumes:
       - ~/.vsdbg:/remote_debugger:rw
     depends_on:
       - database
+      - cache
 
   database:
     image: "mcr.microsoft.com/mssql/server"
@@ -30,3 +32,11 @@ services:
       - "SA_PASSWORD=${SA_PASSWORD}"
     ports:
       - "4300:1433"
+
+  cache:
+    image: "bitnami/redis:latest"
+    ports:
+      - "6379:6379"
+    environment:
+      - "REDIS_REPLICATION_MODE=master"
+      - "ALLOW_EMPTY_PASSWORD=yes"

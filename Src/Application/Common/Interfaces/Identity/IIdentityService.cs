@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using BoardSlide.API.Application.Common.Models;
 
-namespace BoardSlide.API.Application.Common.Interfaces
+namespace BoardSlide.API.Application.Common.Interfaces.Identity
 {
     public interface IIdentityService
     {
