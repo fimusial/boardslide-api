@@ -15,6 +15,12 @@ namespace BoardSlide.API.Server.Controllers
     [Authorize]
     public class BoardsController : ApiController
     {
+        public BoardsController(IUriService uriService)
+            :base(uriService)
+        {
+        }
+
+
         [HttpGet(ApiRoutes.Boards.GetAll)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
@@ -45,7 +51,7 @@ namespace BoardSlide.API.Server.Controllers
             {
                 Name = dto.Name
             });
-            return CreatedAtAction(nameof(Post), result);
+            return Created(UriService.GetBoardUri(result.Id), result);
         }
 
         [HttpPut(ApiRoutes.Boards.Put)]

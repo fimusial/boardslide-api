@@ -15,6 +15,11 @@ namespace BoardSlide.API.Server.Controllers
     [Authorize]
     public class CardsController : ApiController
     {
+        public CardsController(IUriService uriService)
+            :base(uriService)
+        {
+        }
+
         [HttpGet(ApiRoutes.Cards.GetAll)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -58,7 +63,7 @@ namespace BoardSlide.API.Server.Controllers
                 Description = dto.Description,
                 DueDate = dto.DueDate
             });
-            return CreatedAtAction(nameof(Post), result);
+            return Created(UriService.GetCardUri(boardId, cardListId, result.Id), result);
         }
 
         [HttpPut(ApiRoutes.Cards.Put)]

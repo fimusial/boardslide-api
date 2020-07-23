@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BoardSlide.API.Application;
 using BoardSlide.API.Infrastructure;
+using BoardSlide.API.Server.Contracts;
 using BoardSlide.API.Server.Filters;
 
 namespace BoardSlide.API.Server
@@ -46,6 +47,14 @@ namespace BoardSlide.API.Server
                     result.ContentTypes.Add(MediaTypeNames.Application.Json);
                     return result;
                 };
+            });
+
+            services.AddSingleton<IUriService>(provider =>
+            {
+                HttpContext context = provider.GetRequiredService<IHttpContextAccessor>().HttpContext;
+                HttpRequest request = context.Request;
+                string absoluteUri = string.Concat(request.Scheme, "://", request.Host.ToUriComponent(), "/");
+                return new UriService(absoluteUri);
             });
 
             services.AddResponseCompression(options =>

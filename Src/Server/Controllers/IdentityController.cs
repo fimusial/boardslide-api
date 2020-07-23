@@ -11,6 +11,11 @@ namespace BoardSlide.API.Server.Controllers
 {
     public class IdentityController : ApiController
     {
+        public IdentityController(IUriService uriService)
+            :base(uriService)
+        {
+        }
+
         [HttpPost(ApiRoutes.Identity.Register)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
