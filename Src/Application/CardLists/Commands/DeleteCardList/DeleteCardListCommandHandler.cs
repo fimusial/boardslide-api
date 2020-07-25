@@ -10,7 +10,7 @@ using MediatR;
 
 namespace BoardSlide.API.Application.CardLists.Commands.DeleteCardList
 {
-    public class DeleteCardListCommandHandler : HandlerBase, IRequestHandler<DeleteCardListCommand>
+    public class DeleteCardListCommandHandler : DbHandlerBase, IRequestHandler<DeleteCardListCommand>
     {
         public DeleteCardListCommandHandler(ICurrentUserService currentUser, IUnitOfWork unit, IMapper mapper)
             : base(currentUser, unit, mapper)

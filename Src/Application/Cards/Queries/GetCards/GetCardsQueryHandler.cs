@@ -12,7 +12,7 @@ using MediatR;
 
 namespace BoardSlide.API.Application.Cards.Queries.GetCards
 {
-    public class GetCardsQueryHandler : HandlerBase, IRequestHandler<GetCardsQuery, IEnumerable<CardResponse>>
+    public class GetCardsQueryHandler : DbHandlerBase, IRequestHandler<GetCardsQuery, IEnumerable<CardResponse>>
     {
         public GetCardsQueryHandler(ICurrentUserService currentUser, IUnitOfWork unit, IMapper mapper)
             : base(currentUser, unit, mapper)

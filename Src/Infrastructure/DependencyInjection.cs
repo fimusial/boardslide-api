@@ -105,6 +105,7 @@ namespace BoardSlide.API.Infrastructure
             services.AddTransient<IDateTime, DateTimeService>();
 
             services.AddSingleton<TokenValidationParameters>(tokenValidationParameters);
+            services.AddSingleton<ICacheKeyGenerator, CacheKeyGenerator>();
 
             return services;
         }

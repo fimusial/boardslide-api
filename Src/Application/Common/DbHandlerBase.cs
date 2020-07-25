@@ -6,13 +6,13 @@ using BoardSlide.API.Domain.Entities;
 
 namespace BoardSlide.API.Application.Common
 {
-    public class HandlerBase
+    public class DbHandlerBase
     {
         protected readonly ICurrentUserService _currentUser;
         protected readonly IUnitOfWork _unit;
         protected readonly IMapper _mapper;
 
-        protected HandlerBase(ICurrentUserService currentUser, IUnitOfWork unit, IMapper mapper)
+        protected DbHandlerBase(ICurrentUserService currentUser, IUnitOfWork unit, IMapper mapper)
         {
             _currentUser = currentUser;
             _unit = unit;

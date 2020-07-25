@@ -13,7 +13,7 @@ using MediatR;
 
 namespace BoardSlide.API.Application.Cards.Commands.CreateCard
 {
-    public class CreateCardCommandHandler : HandlerBase, IRequestHandler<CreateCardCommand, CardResponse>
+    public class CreateCardCommandHandler : DbHandlerBase, IRequestHandler<CreateCardCommand, CardResponse>
     {
         private readonly ApplicationSettings _settings;
 

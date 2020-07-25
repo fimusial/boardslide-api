@@ -10,7 +10,7 @@ using MediatR;
 
 namespace BoardSlide.API.Application.Boards.Commands.UpdateBoard
 {
-    public class UpdateBoardCommandHandler : HandlerBase, IRequestHandler<UpdateBoardCommand, BoardInfoResponse>
+    public class UpdateBoardCommandHandler : DbHandlerBase, IRequestHandler<UpdateBoardCommand, BoardInfoResponse>
     {
         public UpdateBoardCommandHandler(ICurrentUserService currentUser, IUnitOfWork unit, IMapper mapper)
             : base(currentUser, unit, mapper)

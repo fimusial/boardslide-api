@@ -23,15 +23,15 @@ namespace BoardSlide.API.Infrastructure.Services.Cache
             };
         }
 
-        public async Task<object> GetValueAsync(string key)
+        public async Task<TValue> GetValueAsync<TValue>(string key)
         {
             string value = await _distributedCache.GetStringAsync(key);
             if (value == null)
             {
-                return await Task.FromResult<object>(null);
+                return await Task.FromResult<TValue>(default(TValue));
             }
 
-            object deserializedValue = JsonConvert.DeserializeObject(value, _settings);
+            TValue deserializedValue = JsonConvert.DeserializeObject<TValue>(value, _settings);
             return await Task.FromResult(deserializedValue);
         }
 
@@ -45,6 +45,11 @@ namespace BoardSlide.API.Infrastructure.Services.Cache
             };
 
             await _distributedCache.SetStringAsync(key, serializedValue, cacheOptions);
+        }
+
+        public async Task RemoveValueAsync(string key)
+        {
+            await _distributedCache.RemoveAsync(key);
         }
     }
 }

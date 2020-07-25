@@ -9,7 +9,7 @@ using MediatR;
 
 namespace BoardSlide.API.Application.Boards.Queries.GetBoard
 {
-    public class GetBoardQueryHandler : HandlerBase, IRequestHandler<GetBoardQuery, BoardResponse>
+    public class GetBoardQueryHandler : DbHandlerBase, IRequestHandler<GetBoardQuery, BoardResponse>
     {
         public GetBoardQueryHandler(ICurrentUserService currentUser, IUnitOfWork unit, IMapper mapper)
             : base(currentUser, unit, mapper)

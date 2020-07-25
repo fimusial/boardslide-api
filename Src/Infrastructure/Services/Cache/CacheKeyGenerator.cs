@@ -1,12 +1,13 @@
 using System.Reflection;
 using System.Text;
+using BoardSlide.API.Application.Common.Interfaces.Cache;
 using MediatR;
 
-namespace BoardSlide.API.Application.Common.Behaviors
+namespace BoardSlide.API.Infrastructure.Services.Cache
 {
-    public static class CacheKeyGenerator
+    public class CacheKeyGenerator : ICacheKeyGenerator
     {
-        public static string GenerateCacheKeyFromRequest<TRequest>(TRequest request) where TRequest : IBaseRequest
+        public string GenerateCacheKeyFromRequest<TRequest>(TRequest request) where TRequest : IBaseRequest
         {
             var key = new StringBuilder();
 

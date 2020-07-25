@@ -10,7 +10,7 @@ using MediatR;
 
 namespace BoardSlide.API.Application.Boards.Commands.CreateBoard
 {
-    public class CreateBoardCommandHandler : HandlerBase, IRequestHandler<CreateBoardCommand, BoardInfoResponse>
+    public class CreateBoardCommandHandler : DbHandlerBase, IRequestHandler<CreateBoardCommand, BoardInfoResponse>
     {
         public CreateBoardCommandHandler(ICurrentUserService currentUser, IUnitOfWork unit, IMapper mapper)
             : base(currentUser, unit, mapper)

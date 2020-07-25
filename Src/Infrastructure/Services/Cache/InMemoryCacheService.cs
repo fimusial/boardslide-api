@@ -14,19 +14,25 @@ namespace BoardSlide.API.Infrastructure.Services.Cache
             _memoryCache = memoryCache;
         }
 
-        public Task<object> GetValueAsync(string key)
+        public Task<TValue> GetValueAsync<TValue>(string key)
         {
-            if (_memoryCache.TryGetValue<object>(key, out var value))
+            if (_memoryCache.TryGetValue<TValue>(key, out var value))
             {
-                return Task.FromResult(value);
+                return Task.FromResult<TValue>(value);
             }
 
-            return Task.FromResult<object>(null);
+            return Task.FromResult<TValue>(default(TValue));
         }
 
         public Task SetValueAsync(string key, object value, TimeSpan lifespan)
         {
             _memoryCache.Set(key, value, absoluteExpirationRelativeToNow: lifespan);
+            return Task.CompletedTask;
+        }
+
+        public Task RemoveValueAsync(string key)
+        {
+            _memoryCache.Remove(key);
             return Task.CompletedTask;
         }
     }

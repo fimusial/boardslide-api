@@ -9,7 +9,7 @@ using MediatR;
 
 namespace BoardSlide.API.Application.Boards.Commands.DeleteBoard
 {
-    public class DeleteBoardCommandHandler : HandlerBase, IRequestHandler<DeleteBoardCommand>
+    public class DeleteBoardCommandHandler : DbHandlerBase, IRequestHandler<DeleteBoardCommand>
     {
         public DeleteBoardCommandHandler(ICurrentUserService currentUser, IUnitOfWork unit, IMapper mapper)
             : base(currentUser, unit, mapper)
