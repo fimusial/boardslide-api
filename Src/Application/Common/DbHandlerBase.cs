@@ -6,7 +6,7 @@ using BoardSlide.API.Domain.Entities;
 
 namespace BoardSlide.API.Application.Common
 {
-    public class DbHandlerBase
+    public abstract class DbHandlerBase
     {
         protected readonly ICurrentUserService _currentUser;
         protected readonly IUnitOfWork _unit;

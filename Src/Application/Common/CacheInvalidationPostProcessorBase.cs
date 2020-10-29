@@ -4,7 +4,7 @@ using MediatR;
 
 namespace BoardSlide.API.Application.Common
 {
-    public class CacheInvalidationPostProcessorBase
+    public abstract class CacheInvalidationPostProcessorBase
     {
         protected readonly ICacheService _cache;
         protected readonly ICacheKeyGenerator _keyGenerator;
